@@ -12,22 +12,25 @@
 // Set these to run example.
 #define FIREBASE_HOST "raushan-52f9a-default-rtdb.europe-west1.firebasedatabase.app" //Firebase project link
 #define FIREBASE_AUTH "8abA4M3rDkOX8Jh2TmWlDFRaYeyVhYqYqNi4RPR3" //Firebase key
-#define WIFI_SSID "TEACHERS" //WIFI name
-#define WIFI_PASSWORD "Sch2021pass" //WIFI password
+#define WIFI_SSID "Redmi" //WIFI name
+#define WIFI_PASSWORD "rusikloh" //WIFI password
 
 int RelayFan = D2;
+int Fan = 1;
 int RelayTurbine = D3;
-int Fan = 0;
-int Turbine = 0;
+int Turbine = 1;
 
 void setup() {
-  // connect to wifi.
   Serial.begin(115200);
+  pinMode(RelayFan, OUTPUT);
+  pinMode(RelayTurbine, OUTPUT);
+  digitalWrite(RelayFan, HIGH);
+  digitalWrite(RelayTurbine, HIGH);
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("connecting");
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
+    Serial.print("a");
     delay(500);
   }
   Serial.println();
@@ -35,26 +38,22 @@ void setup() {
   Serial.println(WiFi.localIP());
   
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-
-  pinMode(RelayFan, OUTPUT);
-  pinMode(RelayTurbine, OUTPUT);
 }
 
 void loop() {
-  Turbine = Firebase.getFloat("Turbine");
+  Serial.println("loop");
   Fan = Firebase.getFloat("Fan");
-  Serial.println(Fan);
-  Serial.println(Turbine);
-  if(Turbine == 0){
-    digitalWrite(RelayTurbine, LOW);
-  }
-  else if(Turbine == 1){
-    digitalWrite(RelayTurbine, HIGH);
-  }
   if(Fan == 0){
     digitalWrite(RelayFan, LOW);
   }
   else if (Fan == 1){
     digitalWrite(RelayFan, HIGH);
+  }
+  Turbine = Firebase.getFloat("Turbine");
+  if(Turbine == 0){
+    digitalWrite(RelayTurbine, LOW);
+  }
+  else if (Turbine == 1){
+    digitalWrite(RelayTurbine, HIGH);
   }
 }
