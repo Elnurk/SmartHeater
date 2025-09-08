@@ -1,13 +1,42 @@
-Driver files for the microcontroller - DRIVER USB CH341-CH340 WINDOWS 98,ME,2000,XP,Server 2003,VISTA,Server 2008, 7, 8 32-64.zip
+# SmartHeater
 
-Drive files for the microcontroller - pololu-cp2102-windows-121204.zip
+Smart electric heater controller for dorm/room use. Reads temperature, applies schedules/limits, and drives a relay or SSR to keep a target range with safety cutoffs.
 
-Arduino Json library - ArduinoJson-6.x.zip
+## Features
+- Target temperature with simple hysteresis control
+- Safety limits (max runtime, max temperature)
+- Scheduled “eco” / “boost” presets
+- Serial telemetry for debugging
+- Clean folders: `library/` for vendor libs, `deprecated/` for old “BekaVer” code
 
-Firebase libary - firebase-arduino-master.rar
+## Hardware
+- MCU: Arduino Nano/Uno
+- Temp sensor: DS18B20 / NTC (with proper circuit) or DHT22/BME280
+- Output: Relay module or SSR (observe mains safety)
+- Power: As required by heater controller hardware
 
-Main code - Pechka.ino
+## Software / Stack
+- Written in C++ for the Arduino platform.
+- Uses the [ArduinoJson](https://github.com/bblanchon/ArduinoJson) library to format sensor data.
+- Includes the [Firebase Arduino](https://github.com/FirebaseExtended/firebase-arduino) library for optional cloud data upload.
+- The `Pechka.ino` sketch contains the main control logic.
 
-Tutorial how to add nodemcu to arduino IDE, there is "Как подключить NodeMCU к компьютеру" - https://arduinomaster.ru/platy-arduino/esp8266-nodemcu-v3-lua/
+## Build & Run
+### Using the Arduino IDE
+1. Copy the contents of the `library/` folder into your Arduino libraries directory (typically `~/Documents/Arduino/libraries`).
+2. Open `Pechka.ino` in the Arduino IDE.
+3. Select the correct board and COM port.
+4. Click **Upload** to compile and upload the firmware to your microcontroller.
 
-Fingerprints site is commented in main code
+### Using Arduino CLI
+```bash
+# Install required libraries
+arduino-cli lib install ArduinoJson
+# Compile for an Arduino Uno (adjust the FQBN as needed)
+arduino-cli compile --fqbn arduino:avr:uno Pechka.ino
+# Upload to the connected device
+arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:uno Pechka.ino
+```
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
