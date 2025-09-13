@@ -7,7 +7,6 @@ Smart electric heater controller for dorm/room use. Reads temperature, applies s
 - Safety limits (max runtime, max temperature)
 - Scheduled “eco” / “boost” presets
 - Serial telemetry for debugging
-- Clean folders: `library/` for vendor libs, `deprecated/` for old “BekaVer” code
 
 ## Hardware
 - MCU: Arduino Nano/Uno
