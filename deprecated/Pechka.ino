@@ -10,8 +10,8 @@
 #include <stdio.h>
 //https://www.grc.com/fingerprints.html Fingerprints site
 // Set these to run example.
-#define FIREBASE_HOST "raushan-52f9a-default-rtdb.europe-west1.firebasedatabase.app" //Firebase project link
-#define FIREBASE_AUTH "8abA4M3rDkOX8Jh2TmWlDFRaYeyVhYqYqNi4RPR3" //Firebase key
+#define FIREBASE_HOST "123.europe-west1.firebasedatabase.app" //Firebase project link
+#define FIREBASE_AUTH "123" //Firebase key
 #define WIFI_SSID "Redmi" //WIFI name
 #define WIFI_PASSWORD "rusikloh" //WIFI password
 
@@ -57,3 +57,4 @@ void loop() {
     digitalWrite(RelayTurbine, HIGH);
   }
 }
+
