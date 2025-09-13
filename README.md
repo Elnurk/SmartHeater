@@ -6,6 +6,7 @@ Smart electric heater controller for dorm/room use. Reads temperature, applies s
 - Target temperature with simple hysteresis control
 - Safety limits (max runtime, max temperature)
 - Scheduled “eco” / “boost” presets
+- Manual control via internet
 - Serial telemetry for debugging
 
 ## Hardware
