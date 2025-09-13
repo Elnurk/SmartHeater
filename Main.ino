@@ -8,8 +8,8 @@
 #include <FirebaseArduino.h>
 #include <WiFiClientSecure.h>
 #include <stdio.h>
-#define FIREBASE_HOST "raushan-52f9a-default-rtdb.europe-west1.firebasedatabase.app"
-#define FIREBASE_AUTH "8abA4M3rDkOX8Jh2TmWlDFRaYeyVhYqYqNi4RPR3"
+#define FIREBASE_HOST "123.europe-west1.firebasedatabase.app"
+#define FIREBASE_AUTH "123"
 #define WIFI_SSID "Redmi"
 #define WIFI_PASSWORD "rusikloh"
 
