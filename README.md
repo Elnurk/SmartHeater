@@ -19,12 +19,12 @@ Smart electric heater controller for dorm/room use. Reads temperature, applies s
 - Written in C++ for the Arduino platform.
 - Uses the [ArduinoJson](https://github.com/bblanchon/ArduinoJson) library to format sensor data.
 - Includes the [Firebase Arduino](https://github.com/FirebaseExtended/firebase-arduino) library for optional cloud data upload.
-- The `Pechka.ino` sketch contains the main control logic.
+- The `Main.ino` sketch contains the main control logic.
 
 ## Build & Run
 ### Using the Arduino IDE
 1. Copy the contents of the `library/` folder into your Arduino libraries directory (typically `~/Documents/Arduino/libraries`).
-2. Open `Pechka.ino` in the Arduino IDE.
+2. Open `Main.ino` in the Arduino IDE.
 3. Select the correct board and COM port.
 4. Click **Upload** to compile and upload the firmware to your microcontroller.
 
@@ -33,9 +33,9 @@ Smart electric heater controller for dorm/room use. Reads temperature, applies s
 # Install required libraries
 arduino-cli lib install ArduinoJson
 # Compile for an Arduino Uno (adjust the FQBN as needed)
-arduino-cli compile --fqbn arduino:avr:uno Pechka.ino
+arduino-cli compile --fqbn arduino:avr:uno Main.ino
 # Upload to the connected device
-arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:uno Pechka.ino
+arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:uno Main.ino
 ```
 
 ## License
